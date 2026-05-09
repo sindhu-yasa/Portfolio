@@ -1,0 +1,235 @@
+%-------------------------
+% Resume in Latex
+% Author : Sindhu Yasa
+% Based off of: https://github.com/jakegut/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+%----------FONT OPTIONS----------
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+% Define \titrule for section formatting
+\newcommand{\titrule}{\rule[0.5ex]{\linewidth}{1pt}}
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titrule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \vspace{-10pt}\item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{1pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Sindhu Yasa} \\ \vspace{1pt}
+    \small 706-593-8457 $|$ \href{mailto:sindhu.yasa06@gmail.com}{\underline{sindhu.yasa06@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/sindhu-yasa}{\underline{linkedin.com/in/sindhu-yasa}} $|$
+    \href{https://github.com/sindhu-yasa}{\underline{github.com/sindhu-yasa}}
+\end{center}
+
+%-----------PROFESSIONAL SUMMARY-----------
+\section{Professional Summary}
+\vspace{-8pt}
+Applied Computer Science Master’s graduate and Full-Stack Developer specializing in building responsive, scalable web applications. Proficient in modern JavaScript frameworks (React, Next.js), backend architecture (Python/Flask, Java/Spring Boot), and cloud integration (AWS). Experienced in optimizing enterprise workflows and bridging technical research with production-ready software solutions.
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\vspace{-8pt}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+    
+     \textbf{Languages}{: Java, Python, C, JavaScript, TypeScript, SQL, HTML, CSS, C\#} \\
+     \textbf{Frameworks}{: React JS, Next.js, Bootstrap, Tailwind CSS, Zustand (State Management), Node.js, Flask, Django, Spring Boot, RESTful APIs.} \\
+     \textbf{Libraries}{: pandas, NumPy, Matplotlib, scikit-learn, TensorFlow, Keras, Plotly} \\
+     \textbf{Databases}{: MySQL, PostgreSQL, MongoDB} \\
+     \textbf{Other}{: AWS, Azure, Git, Jenkins, ServiceNow, SAP}\\
+     \textbf{Game Dev} {: Unity 2D/3D, Vuforia AR, C\# Scripting, Game Logic Design, Asset \& Scene Management, 2D/3D Physics, Quality Assurance (QA) Testing, and Cross-Platform Building } 
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+\vspace{-15pt}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Research Intern}{Jul. 2025 -- Present}
+{Columbus State University, TSYS School of Computer Science}{Columbus, GA}
+\resumeItemListStart
+    \resumeItem{Architected and developed an AR-based Java learning platform using \textbf{Unity and Vuforia}, implementing marker-based tracking to visualize complex Object-Oriented Programming (OOP) concepts.}
+    \resumeItem{Designed a modular system for interactive 3D simulations, streamlining the integration of complex logic for beginner programmers.}
+    \resumeItem{Refined application performance through iterative user testing and feedback loops, optimizing asset rendering and scene transitions for mobile deployment.}
+    \resumeItem{Presented technical milestones at university-led events, demonstrating the intersection of \textbf{Spatial Computing} and educational technology to faculty and industry stakeholders.}
+\resumeItemListEnd
+
+  \resumeSubheading
+    {Operations Executive}{Dec. 2021 -- July 2023}
+    {CYIENT}{Hyderabad, India}
+    \resumeItemListStart
+      \resumeItem{Worked with \textbf{ServiceNow}, \textbf{SAP}, and INX to support and optimize enterprise operational workflows.}
+      \resumeItem{Managed incident tickets, change requests, and service tasks ensuring SLA compliance.}
+      \resumeItem{Performed data audits and root cause analysis to maintain system data integrity.}
+      \resumeItem{Generated reports and contributed to dashboard updates for internal stakeholders.}
+      \resumeItem{Collaborated with client (\textbf{Rio Tinto}) and cross-functional teams to resolve real-time issues.}
+      \resumeItem{Automated repetitive workflows and improved process efficiency.}
+      \resumeItem{Trained and mentored \textbf{10+ new hires}; created SOPs and documentation.}
+    \resumeItemListEnd
+
+\resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------
+\section{Education}
+\vspace{-15pt}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Columbus State University}{Columbus, GA}
+      {Master of Science in Applied Computer Science, Software Development Track}{Aug. 2023 -- May 2025}
+      \vspace{-10pt}
+    \resumeSubheading
+      {Ideal Degree College for Women}{Hyderabad, India}
+      {Bachelor of Science in Mathematics, Statistics, Computer Science; GPA: 8.82}{Completed May 2021}
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+\vspace{-5pt}
+
+    \resumeSubHeadingListStart
+
+\resumeProjectHeading
+          {\textbf{Art Gallery Affinity} $|$ \emph{React JS, Zustand, Art Institute of Chicago API}}{Apr. 2024}
+          \resumeItemListStart
+            \resumeItem{Built an interactive UI using React JS and Zustand for exploring public art collections via REST API.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Bank Loan Application Portal} $|$ \emph{Python, Flask, Object-Oriented Design}}{Dec. 2023}
+          \resumeItemListStart
+            \resumeItem{Developed a secure web application for clients and employees to manage loan applications using OOD.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Smart Course Planner} $|$ \emph{Python, Directed Acyclic Graphs}}{Dec. 2023}
+          \resumeItemListStart
+            \resumeItem{Designed an academic planning tool using DAGs to manage course prerequisites and sequencing.}
+          \resumeItemListEnd
+          
+      \resumeProjectHeading
+          {\textbf{PopUp Java – Game-Based Learning Platform} $|$ \emph{Unity, Vuforia, AR, Android, C\#}}{Feb. 2026}
+          \resumeItemListStart
+            \resumeItem{Developed a Unity-based educational game using Vuforia and Android AR for marker-anchored augmented reality.}
+            \resumeItem{Integrated multiple AR prefab simulations (robot, dog, tree) as interactive modules to reinforce Java concepts.}
+            \resumeItem{Packaged and built a Windows executable and began developing mobile and web-friendly versions.}
+          \resumeItemListEnd
+
+    \resumeProjectHeading
+{\textbf{Egg Rush – 2D Arcade Game} $|$ \emph{Unity, C\#, 2D Physics, Sprite Animation}}{Jan. 2026}
+\resumeItemListStart
+    \resumeItem{Developed a 2D arcade game featuring dynamic object spawning and collision-based scoring mechanics.}
+    \resumeItem{Implemented responsive player controls and optimized 2D physics for smooth character movement and interaction.}
+    \resumeItem{Managed game state transitions including start menus, game-over loops, and high-score persistence using C\#.}
+\resumeItemListEnd
+
+
+      \resumeProjectHeading
+          {\textbf{CSUBatch Scheduling System} $|$ \emph{Java, Multithreading, Scheduling Algorithms}}{May 2025}
+          \resumeItemListStart
+            \resumeItem{Developed a command-line scheduling system with FCFS, SJF, and Priority Scheduling algorithms.}
+            \resumeItem{Implemented multithreading with mutex locks for thread safety and created a thread-safe job queue.}
+            \resumeItem{Led performance testing with JUnit to evaluate metrics like turnaround time and throughput.}
+          \resumeItemListEnd
+
+      \resumeProjectHeading
+          {\textbf{Walmart Retail Sales Forecasting} $|$ \emph{Python, XGBoost, Random Forest, PCA}}{Dec. 2024}
+          \resumeItemListStart
+            \resumeItem{Built a predictive model using a dataset of 421,570 entries from 45 stores under Dr. Rania Hodhod.}
+            \resumeItem{Performed extensive preprocessing: date decomposition, holiday encoding, and PCA-based feature reduction.}
+            \resumeItem{Trained and evaluated models including Random Forest and XGBoost; achieved least RMSE using lag features.}
+          \resumeItemListEnd
+      
+    \resumeSubHeadingListEnd
+
+%-----------CERTIFICATIONS-----------
+\section{Licenses \& Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Microsoft 365 Certified: Fundamentals} $|$ Microsoft (June 2025) \\
+     \textbf{SAP Certified Application Associate} $|$ SAP, Cyient (May 2022) \\
+     \textbf{Introduction to Programming in Python / Java} $|$ Udemy (2024)
+    }}
+ \end{itemize}
+
+%-------------------------------------------
+\end{document}

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Sindhu Yasa Portfolio</title>
+  <desc id="desc">Colorful portfolio preview for Sindhu Yasa, full-stack developer.</desc>
+  <rect width="1200" height="630" fill="#fbfcf8"/>
+  <circle cx="160" cy="140" r="170" fill="#1f7a8c" opacity=".22"/>
+  <circle cx="1040" cy="120" r="210" fill="#f25f5c" opacity=".18"/>
+  <circle cx="900" cy="560" r="220" fill="#f5b700" opacity=".18"/>
+  <path d="M0 510 C180 410 300 580 480 470 C680 350 820 420 1200 300 L1200 630 L0 630 Z" fill="#1f7a8c" opacity=".16"/>
+  <g transform="translate(90 86)">
+    <rect x="0" y="0" width="1020" height="458" rx="22" fill="#ffffff" opacity=".82"/>
+    <rect x="36" y="36" width="118" height="118" rx="59" fill="#1f7a8c"/>
+    <text x="95" y="111" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#ffffff">SY</text>
+    <text x="36" y="242" font-family="Arial, Helvetica, sans-serif" font-size="86" font-weight="800" fill="#13202b">Sindhu Yasa</text>
+    <text x="42" y="312" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#1f7a8c">Full-Stack Developer</text>
+    <text x="42" y="370" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#5e6b78">React | Python | Java | Unity AR | AWS</text>
+    <g transform="translate(720 72)">
+      <rect x="0" y="0" width="120" height="68" rx="10" fill="#2f80ed"/>
+      <rect x="140" y="44" width="120" height="68" rx="10" fill="#f25f5c"/>
+      <rect x="0" y="132" width="120" height="68" rx="10" fill="#2d936c"/>
+      <rect x="140" y="176" width="120" height="68" rx="10" fill="#7653d9"/>
+      <text x="60" y="43" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#fff">React</text>
+      <text x="200" y="87" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#fff">Java</text>
+      <text x="60" y="175" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#fff">AWS</text>
+      <text x="200" y="219" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="800" fill="#fff">Unity</text>
+    </g>
+  </g>
+</svg>
