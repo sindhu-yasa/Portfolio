@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Shipment Intake | TradeBridge Global</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">TG</span><span>TradeBridge Global</span></a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+        <div class="nav-links">
+          <a href="services.html">Services</a>
+          <a href="quote.html">Quote</a>
+          <a href="shipment.html">Shipment</a>
+          <a href="compliance.html">Compliance</a>
+          <a href="tracking.html">Tracking</a>
+        </div>
+      </nav>
+    </header>
+    <main class="page">
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Shipment Intake</p>
+          <h1>Collect operational details before booking</h1>
+          <p>This form is designed for internal booking handoff. It saves a local browser draft and can later connect to a database or shipment management API.</p>
+        </div>
+        <form class="panel form wide" data-form="shipment" id="shipment-form">
+          <div class="form-row">
+            <label>Shipper<input name="shipper" required placeholder="Supplier or export company"></label>
+            <label>Consignee<input name="consignee" required placeholder="Importer or delivery company"></label>
+          </div>
+          <div class="form-row">
+            <label>Pickup Address<textarea name="pickup" required></textarea></label>
+            <label>Delivery Address<textarea name="delivery" required></textarea></label>
+          </div>
+          <div class="form-row">
+            <label>Ready Date<input name="readyDate" type="date" required></label>
+            <label>Required Delivery Date<input name="deliveryDate" type="date"></label>
+          </div>
+          <div class="form-row">
+            <label>Packages<input name="packages" type="number" min="1" value="1" required></label>
+            <label>Gross Weight KG<input name="weight" type="number" min="0" step="0.01" required></label>
+          </div>
+          <label>Special Handling
+            <select name="handling">
+              <option>None</option>
+              <option>Temperature controlled</option>
+              <option>Hazardous goods</option>
+              <option>Fragile cargo</option>
+              <option>High-value cargo</option>
+            </select>
+          </label>
+          <label>Notes<textarea name="notes" placeholder="Reference numbers, packaging notes, document status, customs concerns"></textarea></label>
+          <div class="actions">
+            <button class="button primary" type="submit">Submit Shipment</button>
+            <button class="button secondary" type="button" id="save-draft">Save Draft</button>
+            <button class="button ghost" type="button" id="load-draft">Load Draft</button>
+          </div>
+          <p class="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+    <footer class="footer"><p>TradeBridge Global template.</p></footer>
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Quote Request | TradeBridge Global</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">TG</span><span>TradeBridge Global</span></a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+        <div class="nav-links">
+          <a href="services.html">Services</a>
+          <a href="quote.html">Quote</a>
+          <a href="shipment.html">Shipment</a>
+          <a href="compliance.html">Compliance</a>
+          <a href="tracking.html">Tracking</a>
+        </div>
+      </nav>
+    </header>
+    <main class="page">
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Quote</p>
+          <h1>Request pricing and estimate landed cost</h1>
+          <p>The quote form captures commercial details. The calculator provides an early planning estimate and should be replaced with tariff/API-backed logic in production.</p>
+        </div>
+        <div class="two-column">
+          <form class="panel form" data-form="quote">
+            <h2>Quote Request</h2>
+            <label>Company Name<input name="company" required placeholder="Acme Imports LLC"></label>
+            <label>Contact Email<input name="email" type="email" required placeholder="operations@example.com"></label>
+            <div class="form-row">
+              <label>Origin<input name="origin" required placeholder="Shanghai, CN"></label>
+              <label>Destination<input name="destination" required placeholder="Savannah, US"></label>
+            </div>
+            <div class="form-row">
+              <label>Mode
+                <select name="mode" required>
+                  <option value="">Select mode</option>
+                  <option>Ocean FCL</option>
+                  <option>Ocean LCL</option>
+                  <option>Air Freight</option>
+                  <option>Road</option>
+                </select>
+              </label>
+              <label>Incoterm
+                <select name="incoterm" required>
+                  <option value="">Select Incoterm</option>
+                  <option>EXW</option>
+                  <option>FOB</option>
+                  <option>CIF</option>
+                  <option>DAP</option>
+                  <option>DDP</option>
+                </select>
+              </label>
+            </div>
+            <label>Cargo Description<textarea name="cargo" required placeholder="Product, packaging, dimensions, weight, readiness date"></textarea></label>
+            <button class="button primary" type="submit">Submit Quote Request</button>
+            <p class="form-status" role="status"></p>
+          </form>
+
+          <form class="panel form" id="cost-calculator">
+            <h2>Landed Cost Calculator</h2>
+            <label>Goods Value USD<input name="goods" type="number" min="0" step="0.01" value="10000"></label>
+            <label>Freight USD<input name="freight" type="number" min="0" step="0.01" value="1800"></label>
+            <label>Insurance USD<input name="insurance" type="number" min="0" step="0.01" value="120"></label>
+            <div class="form-row">
+              <label>Duty %<input name="duty" type="number" min="0" step="0.01" value="5"></label>
+              <label>Tax %<input name="tax" type="number" min="0" step="0.01" value="7"></label>
+            </div>
+            <label>Handling USD<input name="handling" type="number" min="0" step="0.01" value="350"></label>
+            <button class="button secondary" type="submit">Calculate</button>
+            <output class="result-card" id="cost-result">Estimated landed cost will appear here.</output>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><p>TradeBridge Global template.</p></footer>
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

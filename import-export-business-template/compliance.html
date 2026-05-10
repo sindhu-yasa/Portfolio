@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Compliance Tools | TradeBridge Global</title>
+    <link rel="stylesheet" href="assets/styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="index.html"><span class="brand-mark">TG</span><span>TradeBridge Global</span></a>
+        <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">Menu</button>
+        <div class="nav-links">
+          <a href="services.html">Services</a>
+          <a href="quote.html">Quote</a>
+          <a href="shipment.html">Shipment</a>
+          <a href="compliance.html">Compliance</a>
+          <a href="tracking.html">Tracking</a>
+        </div>
+      </nav>
+    </header>
+    <main class="page">
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Compliance</p>
+          <h1>Document and trade-readiness utilities</h1>
+          <p>These tools help customers prepare for conversations with your operations team. Production systems should verify rules against official customs and sanctions sources.</p>
+        </div>
+        <div class="three-column">
+          <form class="panel form" id="document-checker">
+            <h2>Document Checklist</h2>
+            <label>Shipment Type
+              <select name="shipmentType">
+                <option value="general">General Cargo</option>
+                <option value="food">Food Products</option>
+                <option value="electronics">Electronics</option>
+                <option value="textiles">Textiles</option>
+              </select>
+            </label>
+            <button class="button secondary" type="submit">Show Checklist</button>
+            <ul class="check-list" id="document-results"></ul>
+          </form>
+
+          <form class="panel form" id="incoterm-tool">
+            <h2>Incoterms Guide</h2>
+            <label>Incoterm
+              <select name="term">
+                <option value="EXW">EXW</option>
+                <option value="FOB">FOB</option>
+                <option value="CIF">CIF</option>
+                <option value="DAP">DAP</option>
+                <option value="DDP">DDP</option>
+              </select>
+            </label>
+            <button class="button secondary" type="submit">Explain</button>
+            <output class="result-card" id="incoterm-result"></output>
+          </form>
+
+          <form class="panel form" id="hs-lookup">
+            <h2>HS Code Starter</h2>
+            <label>Keyword<input name="keyword" placeholder="coffee, laptop, cotton"></label>
+            <button class="button secondary" type="submit">Search</button>
+            <output class="result-card" id="hs-result">Enter a product keyword.</output>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer"><p>TradeBridge Global template.</p></footer>
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>
