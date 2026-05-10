@@ -10,6 +10,7 @@ const themeLabels = {
 
 initThemeSwitcher();
 setCurrentNavLink();
+initTradeMap();
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
@@ -248,4 +249,78 @@ function renderCostReport(report) {
 
 function renderReportItem(label, value) {
   return `<div class="report-item"><span>${label}</span><strong>${formatMoney(value)}</strong></div>`;
+}
+
+function initTradeMap() {
+  const mapElement = document.getElementById("trade-map");
+  if (!mapElement || typeof L === "undefined") return;
+
+  const map = L.map(mapElement, {
+    scrollWheelZoom: false,
+    worldCopyJump: true
+  }).setView([24, 20], 2);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 8
+  }).addTo(map);
+
+  const ports = [
+    { name: "Shanghai", role: "Origin port", coords: [31.2304, 121.4737], type: "origin" },
+    { name: "Ho Chi Minh City", role: "Origin region", coords: [10.8231, 106.6297], type: "origin" },
+    { name: "Mumbai", role: "Origin port", coords: [19.076, 72.8777], type: "origin" },
+    { name: "Savannah", role: "Destination port", coords: [32.0809, -81.0912], type: "destination" },
+    { name: "Los Angeles", role: "Destination gateway", coords: [34.0522, -118.2437], type: "destination" },
+    { name: "New York", role: "Destination gateway", coords: [40.7128, -74.006], type: "destination" }
+  ];
+
+  const routes = [
+    ["Shanghai", "Savannah"],
+    ["Ho Chi Minh City", "Los Angeles"],
+    ["Mumbai", "New York"]
+  ];
+
+  ports.forEach((port) => {
+    L.marker(port.coords, { icon: createMarkerIcon(port.type) })
+      .addTo(map)
+      .bindPopup(`<strong>${port.name}</strong>${port.role}`);
+  });
+
+  routes.forEach(([originName, destinationName], index) => {
+    const origin = ports.find((port) => port.name === originName);
+    const destination = ports.find((port) => port.name === destinationName);
+    const points = createRoutePoints(origin.coords, destination.coords);
+
+    L.polyline(points, {
+      color: index === 0 ? "#c58b2b" : index === 1 ? "#1f5f99" : "#138071",
+      dashArray: "8 10",
+      opacity: 0.85,
+      weight: 3
+    }).addTo(map).bindPopup(`<strong>${originName} -> ${destinationName}</strong>Sample trade lane`);
+  });
+}
+
+function createMarkerIcon(type) {
+  return L.divIcon({
+    className: "",
+    html: `<div class="map-marker ${type === "destination" ? "destination" : ""}"><span></span></div>`,
+    iconAnchor: [12, 24],
+    iconSize: [24, 24],
+    popupAnchor: [0, -22]
+  });
+}
+
+function createRoutePoints(origin, destination) {
+  const points = [];
+  const steps = 40;
+
+  for (let index = 0; index <= steps; index += 1) {
+    const progress = index / steps;
+    const lat = origin[0] + (destination[0] - origin[0]) * progress;
+    const lng = origin[1] + (destination[1] - origin[1]) * progress;
+    const arc = Math.sin(progress * Math.PI) * 18;
+    points.push([lat + arc, lng]);
+  }
+
+  return points;
 }
