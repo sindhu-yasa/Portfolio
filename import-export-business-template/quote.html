@@ -20,8 +20,8 @@
         </div>
       </nav>
     </header>
-    <main class="page">
-      <section class="section">
+    <main class="page quote-page">
+      <section class="section quote-section">
         <div class="section-heading">
           <p class="eyebrow">Quote</p>
           <h1>Request pricing and estimate landed cost</h1>
@@ -29,7 +29,11 @@
         </div>
         <div class="two-column">
           <form class="panel form" data-form="quote">
-            <h2>Quote Request</h2>
+            <div class="form-heading">
+              <p class="eyebrow">Shipment Details</p>
+              <h2>Quote Request</h2>
+              <p>Provide lane, cargo, and commercial terms so the operations team can price the movement accurately.</p>
+            </div>
             <label>Company Name<input name="company" required placeholder="Acme Imports LLC"></label>
             <label>Contact Email<input name="email" type="email" required placeholder="operations@example.com"></label>
             <div class="form-row">
@@ -63,7 +67,11 @@
           </form>
 
           <form class="panel form" id="cost-calculator">
-            <h2>Landed Cost Calculator</h2>
+            <div class="form-heading">
+              <p class="eyebrow">Planning Tool</p>
+              <h2>Landed Cost Calculator</h2>
+              <p>Estimate the complete landed cost using value, freight, insurance, duty, tax, and handling charges.</p>
+            </div>
             <label>Goods Value USD<input name="goods" type="number" min="0" step="0.01" value="10000"></label>
             <label>Freight USD<input name="freight" type="number" min="0" step="0.01" value="1800"></label>
             <label>Insurance USD<input name="insurance" type="number" min="0" step="0.01" value="120"></label>
