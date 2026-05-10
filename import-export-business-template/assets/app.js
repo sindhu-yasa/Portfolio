@@ -1,5 +1,15 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
+const nav = document.querySelector(".nav");
+const themes = ["light", "ocean", "dark"];
+const themeLabels = {
+  light: "Light",
+  ocean: "Ocean",
+  dark: "Dark"
+};
+
+initThemeSwitcher();
+setCurrentNavLink();
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
@@ -36,9 +46,19 @@ if (calculator) {
     const tax = (customsValue + duty) * ((Number(data.tax) || 0) / 100);
     const total = customsValue + duty + tax + handling;
 
-    document.getElementById("cost-result").textContent =
-      `Customs value: ${formatMoney(customsValue)}\nDuty: ${formatMoney(duty)}\nTax: ${formatMoney(tax)}\nHandling: ${formatMoney(handling)}\nEstimated landed cost: ${formatMoney(total)}`;
+    document.getElementById("cost-result").innerHTML = renderCostReport({
+      goods,
+      freight,
+      insurance,
+      customsValue,
+      duty,
+      tax,
+      handling,
+      total
+    });
   });
+
+  calculator.dispatchEvent(new Event("submit", { cancelable: true }));
 }
 
 const shipmentForm = document.getElementById("shipment-form");
@@ -152,4 +172,80 @@ function formatMoney(value) {
     currency: "USD",
     maximumFractionDigits: 2
   }).format(value);
+}
+
+function initThemeSwitcher() {
+  const storedTheme = localStorage.getItem("tradebridge-theme");
+  const initialTheme = themes.includes(storedTheme) ? storedTheme : "light";
+  document.documentElement.dataset.theme = initialTheme;
+
+  if (!nav) return;
+
+  const switcher = document.createElement("div");
+  switcher.className = "theme-switcher";
+  switcher.setAttribute("aria-label", "Theme options");
+
+  themes.forEach((theme) => {
+    const button = document.createElement("button");
+    button.className = "theme-option";
+    button.type = "button";
+    button.textContent = themeLabels[theme];
+    button.dataset.themeOption = theme;
+    button.setAttribute("aria-pressed", String(theme === initialTheme));
+    if (theme === initialTheme) button.classList.add("active");
+    switcher.appendChild(button);
+  });
+
+  switcher.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-theme-option]");
+    if (!button) return;
+    const theme = button.dataset.themeOption;
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("tradebridge-theme", theme);
+
+    switcher.querySelectorAll(".theme-option").forEach((item) => {
+      const active = item.dataset.themeOption === theme;
+      item.classList.toggle("active", active);
+      item.setAttribute("aria-pressed", String(active));
+    });
+  });
+
+  nav.appendChild(switcher);
+}
+
+function setCurrentNavLink() {
+  if (!navLinks) return;
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  navLinks.querySelectorAll("a").forEach((link) => {
+    const linkPage = link.getAttribute("href");
+    if (linkPage === currentPage) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
+}
+
+function renderCostReport(report) {
+  return `
+    <div class="calculator-report">
+      <div class="report-total">
+        <span>Estimated landed cost</span>
+        <strong>${formatMoney(report.total)}</strong>
+      </div>
+      <div class="report-grid">
+        ${renderReportItem("Goods value", report.goods)}
+        ${renderReportItem("Freight", report.freight)}
+        ${renderReportItem("Insurance", report.insurance)}
+        ${renderReportItem("Customs value", report.customsValue)}
+        ${renderReportItem("Estimated duty", report.duty)}
+        ${renderReportItem("Estimated tax", report.tax)}
+        ${renderReportItem("Handling", report.handling)}
+        ${renderReportItem("Total", report.total)}
+      </div>
+      <span class="report-note">Planning estimate only. Final landed cost depends on verified HS classification, origin, destination, currency, carrier charges, and customs rulings.</span>
+    </div>
+  `;
+}
+
+function renderReportItem(label, value) {
+  return `<div class="report-item"><span>${label}</span><strong>${formatMoney(value)}</strong></div>`;
 }
